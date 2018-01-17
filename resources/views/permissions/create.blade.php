@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class='col-lg-4 col-lg-offset-4'>
+<div class='col-lg-4 col-lg-offset-4 well'>
 
     {{-- @include ('errors.list') --}}
 
@@ -23,14 +23,14 @@
 
         <h4>Assign Permission to Roles</h4>
 
-        @foreach ($roles as $role) 
+        @foreach ($roles as $role)
             {{ Form::checkbox('roles[]',  $role->id ) }}
             {{ Form::label($role->name, ucfirst($role->name)) }}<br>
 
         @endforeach
 
     @endif
-    
+
     <br>
     {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 

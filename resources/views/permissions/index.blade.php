@@ -5,10 +5,14 @@
 @section('content')
 
 <div class="col-lg-10 col-lg-offset-1">
-    <h1><i class="fa fa-key"></i>Available Permissions
+    <h1>
+        <i class="fa fa-key"></i> Available Permissions
 
-    <a href="{{ route('users.index') }}" class="btn btn-default pull-right">Users</a>
-    <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a></h1>
+        <div class="btn-group pull-right" role="group">
+            <a href="{{ route('users.index') }}" class="btn btn-default"><i class="fa fa-users"></i> Users</a>
+            <a href="{{ route('roles.index') }}" class="btn btn-default"><i class="fa fa-key"></i> Roles</a>
+        </div>
+    </h1>
     <hr>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -24,10 +28,10 @@
                 <tr>
                     <td>{{ $permission->name }}</td> 
                     <td>
-                    <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                    <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;"><i class="fa fa-check" ></i> Edit</a>
 
                     {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id] ]) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                    <button class="btn btn-danger" type="submit"><i class="fa fa-times" ></i> Delete</button>
                     {!! Form::close() !!}
 
                     </td>
@@ -37,7 +41,7 @@
         </table>
     </div>
 
-    <a href="{{ URL::to('permissions/create') }}" class="btn btn-success">Add Permission</a>
+    <a href="{{ URL::to('permissions/create') }}" class="btn btn-success"><i class="fa fa-plus" ></i> Add Permission</a>
 
 </div>
 

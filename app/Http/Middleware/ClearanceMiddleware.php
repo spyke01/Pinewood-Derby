@@ -18,6 +18,11 @@ class ClearanceMiddleware {
             return $next($request);
         }
 
+//	    // This is accessible by all
+//	    if ( $request->is('*leader-board*') ) {
+//		    return $next($request);
+//	    }
+
         if ($request->is('posts/create')) {
             if (!Auth::user()->hasPermissionTo('Create Post')) {
                 abort('401');
@@ -41,6 +46,38 @@ class ClearanceMiddleware {
                 return $next($request);
             }
         }
+
+	    if ( $request->is('contestants*') ) {
+		    if (!Auth::user()->hasPermissionTo('Manage Contestants')) {
+			    abort('401');
+		    } else {
+			    return $next($request);
+		    }
+	    }
+
+	    if ( $request->is('heats*') ) {
+		    if (!Auth::user()->hasPermissionTo('Manage Heats')) {
+			    abort('401');
+		    } else {
+			    return $next($request);
+		    }
+	    }
+
+	    if ( $request->is('runs*') ) {
+		    if (!Auth::user()->hasPermissionTo('Manage Runs')) {
+			    abort('401');
+		    } else {
+			    return $next($request);
+		    }
+	    }
+
+	    if ( $request->is('dens*') || $request->is('groups*') || $request->is('scores-for-positions*') ) {
+		    if (!Auth::user()->hasPermissionTo('Change Configuration')) {
+			    abort('401');
+		    } else {
+			    return $next($request);
+		    }
+	    }
 
         return $next($request);
     }
