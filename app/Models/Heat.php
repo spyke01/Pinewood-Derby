@@ -48,7 +48,7 @@ class Heat extends Model
 		return $query->where( 'status', 'complete' )->orderBy('sequence', 'DESC')->orderBy('created_at', 'DESC')->first();
 	}
 	public function scopeUpcoming( $query ) {
-		return $query->where( 'status', 'upcoming' )->orderBy('sequence')->orderBy('created_at');
+		return $query->where( 'status', 'upcoming' )->orderBy('group_id')->orderBy('sequence')->orderBy('created_at');
 	}
 	public function scopeUpcomingIncomplete( $query ) {
 		return $query->where( 'status', 'upcoming' )->join('runs', 'runs.heat_id', '=', 'heats.id')->groupBy('heats.id')->havingRaw('count(runs.id) < ' . env('LANES_ON_TRACK' ) );
