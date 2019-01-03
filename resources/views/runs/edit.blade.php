@@ -15,7 +15,7 @@
                 <h1>Edit Run for Heat #{{ $heat->id }}</h1>
                 <hr>
                 @include ('errors.list')
-                {{ Form::model($heat, array('route' => array('runs.update', $heat->id), 'method' => 'PUT', 'files' => TRUE )) }}
+                {{ Form::model($heat, array('route' => array('runs.update', $heat->id), 'id' => 'heatEntryForm', 'method' => 'PUT', 'files' => TRUE )) }}
                 {{ Form::hidden('redirectTo', $redirectTo) }}
 
                 <div class="form-group">

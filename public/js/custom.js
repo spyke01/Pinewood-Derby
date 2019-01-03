@@ -140,6 +140,11 @@ $(function() {
 		}
 	});
 
+	// Autofocus on first heat run entry field
+	if ( $('#heatEntryForm').length > 0 ) {
+		$('#heatEntryForm input[name*="lane_position"]:first').focus();
+	}
+
 });
 
 /*-------------------------------------------------------------------------*/
