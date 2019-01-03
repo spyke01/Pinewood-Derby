@@ -45,7 +45,7 @@ class DerbyController extends Controller
 			COALESCE( ( SELECT d.picture FROM `dens` d WHERE c.den_id = d.id LIMIT 1 ), '' ) AS denPicture
 			FROM `contestants` c
 			ORDER BY
-			score DESC
+			numRuns DESC, score DESC
 		" ) );
 		$previousHeat = Heat::mostRecent()->with('group', 'runs', 'runs.contestant' )->first();
 		$upNext = Heat::upcoming()->with('group', 'runs', 'runs.contestant' )->limit(5)->get();
@@ -74,7 +74,7 @@ class DerbyController extends Controller
 				FROM `contestants` c
 				WHERE c.group_id = " . intval( $group->id ) . "
 				ORDER BY
-				score DESC
+				numRuns DESC, score DESC
 			" ) );
 
 			$groups[] = array(
@@ -94,7 +94,7 @@ class DerbyController extends Controller
 				FROM `contestants` c
 				WHERE c.den_id = " . intval( $den->id ) . "
 				ORDER BY
-				score DESC
+				numRuns DESC, score DESC
 			" ) );
 
 			$groups[] = array(
@@ -124,7 +124,7 @@ class DerbyController extends Controller
 			COALESCE( ( SELECT d.picture FROM `dens` d WHERE c.den_id = d.id LIMIT 1 ), '' ) AS denPicture
 			FROM `contestants` c
 			ORDER BY
-			score DESC
+			numRuns DESC, score DESC
 		" ) );
 		$previousHeat = Heat::mostRecent()->with('group', 'runs', 'runs.contestant' )->first();
 		$upNext = Heat::upcoming()->with('group', 'runs', 'runs.contestant' )->limit(5)->get();
