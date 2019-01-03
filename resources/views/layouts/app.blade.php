@@ -92,6 +92,9 @@
                                         <a href="{{ route('users.index') }}"><i class="fa fa-btn fa-users"></i> Users</a>
                                         <a href="{{ route('roles.index') }}"><i class="fa fa-btn fa-key"></i> Roles</a>
                                         <a href="{{ route('permissions.index') }}"><i class="fa fa-btn fa-key"></i> Permissions</a>
+                                        @can('Manage Data')
+                                            <a href="{{ route('manage-data.index') }}"><i class="fa fa-btn fa-cogs"></i> Manage Data</a>
+                                        @endcan
                                     </li>
                                 </ul>
                             </li>

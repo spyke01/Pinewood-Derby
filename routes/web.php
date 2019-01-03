@@ -28,6 +28,7 @@ Route::get( 'derby/leader-board-data', 'DerbyController@leaderboard_data' )->nam
 Route::get( 'derby/leader-board-inner', 'DerbyController@leaderboard_inner' )->name('leader-board-inner');
 Route::get( 'heats/import', 'HeatController@import' )->name('import-heats');
 Route::get( 'heats/start-heat', 'HeatController@start_heat' )->name('start-heat');
+Route::get( 'manage-data/purge', 'ManageDataController@purge' )->name('purge-data');
 Route::get( 'runs/start-next', 'RunController@start_next' )->name('start-next-run');
 
 Route::put('contestants/{contestant_id?}/passed-inspection', function( Request $request, $contestant_id ){
@@ -59,6 +60,7 @@ Route::resource( 'dens', 'DenController' );
 Route::resource( 'derby', 'DerbyController' );
 Route::resource( 'groups', 'GroupController' );
 Route::resource( 'heats', 'HeatController' );
+Route::resource( 'manage-data', 'ManageDataController' );
 Route::resource( 'permissions', 'PermissionController' );
 Route::resource( 'posts', 'PostController' );
 Route::resource( 'runs', 'RunController' );

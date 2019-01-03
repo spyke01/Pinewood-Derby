@@ -63,6 +63,14 @@ class ClearanceMiddleware {
 		    }
 	    }
 
+	    if ( $request->is('manage-data*') ) {
+		    if (!Auth::user()->hasPermissionTo('Manage Data')) {
+			    abort('401');
+		    } else {
+			    return $next($request);
+		    }
+	    }
+
 	    if ( $request->is('runs*') ) {
 		    if (!Auth::user()->hasPermissionTo('Manage Runs')) {
 			    abort('401');
