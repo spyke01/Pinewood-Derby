@@ -15,7 +15,7 @@
                     <th>Den</th>
                     <th>Inspected?</th>
                     {{--<th>Excluded?</th>--}}
-                    <th></th>
+                    <th class="min-w-200 max-w-200"></th>
                 </tr>
                 </thead>
 
