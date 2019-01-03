@@ -30,7 +30,7 @@
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td class="hidden-xs">
-                                            {{ $contestant->name }}
+                                            {{ filterNameForPublic( $contestant->name ) }}
                                             @if ( !empty( $contestant->denPicture) )
                                                 <img src="{{ asset( 'storage/' . $contestant->denPicture ) }}" class="img-responsive inline-block max-w-30 pull-right" alt="" />
                                             @endif

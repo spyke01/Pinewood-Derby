@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td class="hidden-xs">
-                                {{ $contestant->name }}
+                                {{ filterNameForPublic( $contestant->name ) }}
                                 @if ( !empty( $contestant->denPicture) )
                                     <img src="{{ asset( 'storage/' . $contestant->denPicture ) }}" class="img-responsive inline-block max-w-30 pull-right" alt="" />
                                 @endif
@@ -74,7 +74,7 @@
                         @foreach ($previousHeat->runs as $run)
                             <td>
                                 @if ( isset( $run->contestant->name ) )
-                                    {{$run->contestant->name}} (#{{$run->contestant->car_number}})
+                                    {{ filterNameForPublic( $run->contestant->name ) }} (#{{$run->contestant->car_number}})
                                 @else
                                     Unknown
                                 @endif
@@ -118,7 +118,7 @@
                     @foreach ($heat->runs as $run)
                         <td>
                             @if ( isset( $run->contestant->name ) )
-                                {{$run->contestant->name}} (#{{$run->contestant->car_number}})
+                                {{ filterNameForPublic( $run->contestant->name ) }} (#{{$run->contestant->car_number}})
                             @else
                                 Unknown
                             @endif
