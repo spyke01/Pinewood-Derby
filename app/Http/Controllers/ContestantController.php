@@ -73,8 +73,7 @@ class ContestantController extends Controller
 	 */
 	public function index()
 	{
-		$contestants = Contestant::with( 'group', 'den' )->get();
-
+		$contestants = Contestant::byGroupAndDen()->get();
 		return view('contestants.index')->with('contestants', $contestants);
 	}
 

@@ -34,17 +34,17 @@
                                 {{ Form::number('car_number', $contestant->car_number, array( 'class' => 'form-control quickNumberCar', 'data-id' => $contestant->id  ) ) }} <i class="fa fa-circle-o-notch fa-spin spinner hidden" ></i>
                             </td>
                             <td>
-                                @if ( !empty( $contestant->group->picture) )
-                                    <img src="{{ asset( 'storage/' . $contestant->group->picture ) }}" class="img-responsive center-block max-w-50" alt="" />
-                                @elseif ( isset( $contestant->group->name) )
-                                    {{ $contestant->group->name }}
+                                @if ( !empty( $contestant->group_picture) )
+                                    <img src="{{ asset( 'storage/' . $contestant->group_picture ) }}" class="img-responsive center-block max-w-50" alt="" />
+                                @elseif ( isset( $contestant->group_name) )
+                                    {{ $contestant->group_name }}
                                 @endif
                             </td>
                             <td>
-                                @if ( !empty( $contestant->den->picture) )
-                                    <img src="{{ asset( 'storage/' . $contestant->den->picture ) }}" class="img-responsive center-block max-w-50" alt="" />
-                                @elseif ( isset( $contestant->den->name) )
-                                    {{ $contestant->den->name }}
+                                @if ( !empty( $contestant->den_picture) )
+                                    <img src="{{ asset( 'storage/' . $contestant->den_picture ) }}" class="img-responsive center-block max-w-50" alt="" />
+                                @elseif ( isset( $contestant->den_name) )
+                                    {{ $contestant->den_name }}
                                 @endif
                             </td>
                             <td>
