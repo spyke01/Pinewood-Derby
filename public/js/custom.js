@@ -117,8 +117,8 @@ $(function() {
 			$mySpinner.removeClass('hidden');
 
 			if ( $(this).prop('checked') ) {
-				// Refresh every 10 seconds
-				leaderboardRefreshTimer = setTimeout(function(){ callRefreshLeaderboardData(); }, 10000);
+				// Refresh every 18 seconds
+				leaderboardRefreshTimer = setTimeout(function(){ callRefreshLeaderboardData(); }, 18000);
 				console.log('Timer is enabled');
 			} else {
 				// remove any timers
